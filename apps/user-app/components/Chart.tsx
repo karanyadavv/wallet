@@ -1,9 +1,6 @@
 // @ts-nocheck
 "use client";
-import prisma from '@repo/db/client';
 import { AreaChart } from '@tremor/react';
-import { useEffect, useState } from 'react';
-import { OnRampTransactions } from './OnRampTransactions';
 
 const chartdata = [
   {

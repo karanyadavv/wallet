@@ -1,4 +1,3 @@
-// @ts-nocheck
 import prisma from "@repo/db/client";
 import { SendCard } from "../../../components/SendCard";
 import { getServerSession } from "next-auth";
