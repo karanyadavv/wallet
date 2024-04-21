@@ -1,4 +1,3 @@
-// @ts-nocheck
 
 import prisma from "@repo/db/client";
 import { SendCard } from "../../../components/SendCard";
@@ -13,7 +12,7 @@ async function getP2PTransactions() {
             fromUserId: Number(session?.user?.id)
         }
     });
-    return txns.map(t => ({
+    return txns.map((t: any) => ({
         time: t.timestamp,
         amount: t.amount,
         recipient: t.toUserId
