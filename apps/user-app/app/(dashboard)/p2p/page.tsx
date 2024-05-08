@@ -5,9 +5,16 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../../lib/auth";
 import { P2PTransactions } from "../../../components/P2PTransactions";
 
-async function getP2PTransactions() {
+
+interface P2PTransfer {
+    timestamp: Date;
+    amount: number;
+    toUserId: number;
+    // Add other properties as needed
+}
+async function getP2PTransactions(): Promise<{ time: Date; amount: number; recipient: number }[]> {
     const session = await getServerSession(authOptions);
-    const txns = await prisma.p2pTransfer.findMany({
+    const txns: P2PTransfer[] = await prisma.p2pTransfer.findMany({
         where: {
             fromUserId: Number(session?.user?.id)
         }
