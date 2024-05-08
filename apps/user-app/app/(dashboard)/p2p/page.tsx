@@ -19,7 +19,7 @@ async function getP2PTransactions(): Promise<{ time: Date; amount: number; recip
             fromUserId: Number(session?.user?.id)
         }
     });
-    return txns.map((t: any) => ({
+    return txns.map(t => ({
         time: t.timestamp,
         amount: t.amount,
         recipient: t.toUserId
